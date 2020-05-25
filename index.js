@@ -5,6 +5,20 @@ const token = '1026760605:AAFXaG5cncEq1so1nvbA1wkU2mUWgPRjwAg';
 const bot = new TelegramBot(token, {polling: true});
 // const idAdmin = 32949386;
 
+
+bot.onText(/\/start_test/, function (msg, match) {
+  bot.sendMessage(msg.chat.id, 'Выберите любую кнопку:', options);
+});
+
+bot.onText(/\/start/, (msg, match) => {
+
+  const chatId = msg.chat.id;
+  // const resp = match[1]; 
+
+  bot.sendMessage(chatId, 'Приветик, ' + msg.chat.first_name + '!');
+  openKlava(chatId);
+});
+
 bot.on('message', (msg) => {
   const chatId = msg.chat.id;
   const first_name = msg.chat.first_name;
@@ -52,19 +66,6 @@ bot.on('message', (msg) => {
   }
 
   bot.forwardMessage(chatId, idAdmin, msg.message_id);
-});
-
-bot.onText(/\/start_test/, function (msg, match) {
-  bot.sendMessage(msg.chat.id, 'Выберите любую кнопку:', options);
-});
-
-bot.onText(/\/start/, (msg, match) => {
-
-  const chatId = msg.chat.id;
-  // const resp = match[1]; 
-
-  bot.sendMessage(chatId, 'Приветик, ' + msg.chat.first_name + '!');
-  openKlava(chatId);
 });
 
 bot.on('callback_query', (query) => {

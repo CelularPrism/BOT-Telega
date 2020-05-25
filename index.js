@@ -54,6 +54,10 @@ bot.on('message', (msg) => {
   bot.forwardMessage(chatId, idAdmin, msg.message_id);
 });
 
+bot.onText(/\/start_test/, function (msg, match) {
+  bot.sendMessage(msg.chat.id, 'Выберите любую кнопку:', options);
+});
+
 bot.onText(/\/start/, (msg, match) => {
 
   const chatId = msg.chat.id;
@@ -112,7 +116,3 @@ var options = {
     ]
   })
 };
-
-bot.onText(/\/start_test/, function (msg, match) {
-  bot.sendMessage(msg.chat.id, 'Выберите любую кнопку:', options);
-});

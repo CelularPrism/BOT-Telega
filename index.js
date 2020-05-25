@@ -6,11 +6,11 @@ const bot = new TelegramBot(token, {polling: true});
 // const idAdmin = 32949386;
 
 
-bot.onText(/\/start_test/, function (msg, match) {
+bot.on(/\/start_test/, function (msg, match) {
   bot.sendMessage(msg.chat.id, 'Выберите любую кнопку:', options);
 });
 
-bot.onText(/\/start/, (msg, match) => {
+bot.on(/\/start/, (msg, match) => {
 
   const chatId = msg.chat.id;
   // const resp = match[1]; 

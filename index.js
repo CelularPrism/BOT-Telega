@@ -13,7 +13,7 @@ bot.onText(/\/start_test/, function (msg, match) => {
 bot.onText(/\/start/, (msg, match) => {
 
   const chatId = msg.chat.id;
-  // const resp = match[1]; 
+  const resp = match[1]; 
 
   bot.sendMessage(chatId, 'Приветик, ' + msg.chat.first_name + '!');
   openKlava(chatId);
